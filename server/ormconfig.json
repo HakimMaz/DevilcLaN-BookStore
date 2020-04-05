@@ -1,0 +1,15 @@
+{
+    "type": "postgres",
+   "host": "localhost",
+   "port": "5432",
+   "username": "postgres",
+   "password": "postgres",
+   "database": "bookStore",
+   "synchronize": true,
+   "logging": true,
+   "entities":["dist/**/*.entity{.ts,.js}"]
+
+   
+
+
+}
