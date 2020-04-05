@@ -34,11 +34,13 @@ export class CategoryService {
   }
 
   async editCat(id: number, data:Partial<CategoryDto>) {
+    console.log("id pour la modification", id)
     const category=await this.catRepository.findOne(id);
+    console.log("category found" ,category);
     if(!category){
       throw new HttpException('Not found',HttpStatus.NOT_FOUND)
     }
-    await this.catRepository.update({ id }, data);
+    await this.catRepository.update(id,data);
     return category;
   }
 

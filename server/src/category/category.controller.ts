@@ -1,4 +1,4 @@
-import { Controller, Get, Body, Post, Param, Delete, UsePipes, Logger } from '@nestjs/common';
+import { Controller, Get, Body, Post, Param, Delete, UsePipes, Logger, Put } from '@nestjs/common';
 import { CategoryService } from './category.service';
 import { CategoryDto } from './category.dto';
 import { ValidationPipe } from '../shared/validation.pipe';
@@ -22,6 +22,11 @@ export class CategoryController {
     @Get(':id')
     getOne(@Param('id') id:number){
         return this.categoryService.read(id);
+    }
+    @Put(':id')
+    UpdateCategory(@Param() id:number,@Body() data:Partial<CategoryDto>){
+        console.log("id a ce niveau",id)
+        return this.categoryService.editCat(id,data);
     }
     @Delete(':id')
     removeCategory(@Param('id') id:number){
