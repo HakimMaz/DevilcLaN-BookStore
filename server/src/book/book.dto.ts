@@ -5,8 +5,5 @@ export class BookDto{
     bookpage :number;
     bookisbn :string;
     bookprice :number;
-    category :Categories;
-
-
-
+    categorybook :Categories;
 }
