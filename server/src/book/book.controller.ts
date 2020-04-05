@@ -33,6 +33,7 @@ export class BookController {
     /**
      * 
      * @param data 
+     * find book with isbn number
      */
     @Get('api/bookIsbn/:isbn')
     getBookWithIsbn(@Param('isbn')  isbn:string){
