@@ -18,9 +18,7 @@ export class CategoryService {
 
   async create(data:Partial<CategoryDto>) {
     //data is an object that contains entity attributs and values
-    console.log("consoling data : ",data)
     const cat = this.catRepository.create(data);
-    console.log("the problem is here",cat);
     return await this.catRepository.save(cat);
   }
 
@@ -34,9 +32,7 @@ export class CategoryService {
   }
 
   async editCat(id: number, data:Partial<CategoryDto>) {
-    console.log("id pour la modification", id)
     const category=await this.catRepository.findOne(id);
-    console.log("category found" ,category);
     if(!category){
       throw new HttpException('Not found',HttpStatus.NOT_FOUND)
     }
