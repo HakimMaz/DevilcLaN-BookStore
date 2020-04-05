@@ -84,6 +84,9 @@ export class BookService {
    */
   async deleteBook(id:number){
     const book= await this.bookRepository.findOne(id);
+    if(!book){
+      throw new HttpException('Book not found',HttpStatus.NOT_FOUND);
+    }
     return await this.bookRepository.remove(book);
   }
 }
